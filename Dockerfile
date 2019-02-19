@@ -46,3 +46,13 @@ RUN curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$
     && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
     && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
     && rm yarn-v$YARN_VERSION.tar.gz
+
+# Install GCloud CLI
+ENV GCLOUD_VERSION 234.0.0
+
+RUN curl -SLO "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-$GCLOUD_VERSION-linux-x86.tar.gz" \
+    && mkdir -p /opt/google-cloud-sdk \
+    && tar -xzf google-cloud-sdk-$GCLOUD_VERSION-linux-x86.tar.gz -C /opt/ \
+    && /opt/google-cloud-sdk/install.sh \
+    && ln -s /opt/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud \
+    && rm google-cloud-sdk-$GCLOUD_VERSION-linux-x86.tar.gz

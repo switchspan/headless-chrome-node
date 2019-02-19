@@ -20,6 +20,16 @@ $ docker pull switchspan/headless-chrome-node:latest
 
 You can also use the image in the `FROM` command of your `Dockerfile`.
 
+## Deployment
+
+To deploy a new version, login to docker hub and push the new tag.
+
+```sh
+$ docker tag switchspan/headless-chrome-node:<tagname> switchspan/headless-chrome-node:latest
+$ docker push switchspan/headless-chrome-node:<tagname>
+$ docker push switchspan/headless-chrome-node:latest
+```
+
 ## Built With
 
 - [Docker](http://www.docker.com/) - The containerization used
